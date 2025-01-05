@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Sign Up Clone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* Basic styles for the body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        /* Container for the sign-up form */
+        .signup-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Image styling */
+        .logo {
+            width: 280px;
+            margin: 0 auto 0px;
+        }
+
+        /* Form group styling */
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .form-group input::placeholder {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* Button styles */
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer text */
+        p {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        p a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        /* Social login button styles */
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .social-login img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            border-radius: 50%;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .social-login img:hover {
+            filter: grayscale(0%);
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <!-- Logo -->
+        <img src="logo.png" alt="LeetCode Logo" class="logo">
+        <form id="signup-form">
+            <!-- Username field -->
+            <div class="form-group">
+                <input type="text" id="username" name="username" placeholder="Username" required>
+            </div>
+            <!-- Email field -->
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="E-mail address" required>
+            </div>
+            <!-- Password field -->
+            <div class="form-group">
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <!-- Confirm password field -->
+            <div class="form-group">
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
+            </div>
+            <!-- Submit button -->
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <!-- Social login options -->
+        <div class="social-login">
+            <img src="google_logo.png" alt="Login with Google" title="Login with Google">
+            <img src="github_logo.png" alt="Login with GitHub" title="Login with GitHub">
+            <img src="facebook_logo.png" alt="Login with Facebook" title="Login with Facebook">
+        </div>
+
+        <p>Already have an account? <a href="#">Log in</a></p>
+    </div>
+    <script>
+        // Attach an event listener to the form submission
+        document.getElementById('signup-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // Get values from input fields
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const confirmPassword = document.getElementById('confirm-password').value.trim();
+
+            // Validate fields
+            if (!username || !email || !password || !confirmPassword) {
+                alert('All fields are required!');
+                return;
+            }
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            // If validation passes
+            alert(`Sign-up successful!\nWelcome, ${username}!`);
+        });
+    </script>
+</body>
+</html>
